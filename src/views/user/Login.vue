@@ -12,7 +12,7 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons-vue";
 const loginUserStore = useLoginUserStore();
 const router = useRouter();
 const labelCol = { style: { width: "100px" } };
-const wrapperCol = { span: 12 };
+const wrapperCol = { span: 24 };
 const loginForm = reactive({
   userAccount: "",
   userPassword: "",

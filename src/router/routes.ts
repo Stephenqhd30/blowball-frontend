@@ -1,11 +1,11 @@
-import HomeView from "../views/HomeView.vue";
-import { RouteRecordRaw } from "vue-router";
-import Login from "../views/user/Login.vue";
-import NoAuthPage from "../views/exception/NoAuthPage.vue";
-import { ACCESS_ENUM } from "../constants";
-import UserLayout from "../layouts/UserLayout.vue";
-import NotFoundPage from "../views/exception/NotFoundPage.vue";
-import AdminUserPage from "../views/admin/AdminUserPage.vue";
+import IndexPage from '../views/IndexPage.vue';
+import {RouteRecordRaw} from 'vue-router';
+import Login from '../views/user/Login.vue';
+import NoAuthPage from '../views/exception/NoAuthPage.vue';
+import {ACCESS_ENUM} from '../constants';
+import UserLayout from '../layouts/UserLayout.vue';
+import NotFoundPage from '../views/exception/NotFoundPage.vue';
+import AdminUserPage from '../views/admin/AdminUserPage.vue';
 import UserCenter from '../views/account/UserCenter.vue';
 import UserSettings from '../views/account/UserSettings.vue';
 
@@ -13,7 +13,7 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "主页",
-    component: HomeView,
+    component: IndexPage
   },
   {
     path: "/admin",
@@ -30,7 +30,6 @@ export const routes: Array<RouteRecordRaw> = [
     component: UserLayout,
     meta: {
       hideInMenu: true,
-      access: ACCESS_ENUM.USER
     },
     children: [
       {
@@ -43,7 +42,9 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/account",
     name: "个人页",
-    redirect: "/account/center",
+    meta: {
+      hideInMenu: true
+    },
     children: [
       {
         path: "/account/center",
