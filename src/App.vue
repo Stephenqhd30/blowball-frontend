@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import {useRoute} from 'vue-router';
-import BasicLayout from './layouts/BasicLayout.vue';
+import { useRoute } from "vue-router";
+import BasicLayout from "./layouts/BasicLayout.vue";
 
 const route = useRoute();
 </script>
@@ -16,4 +16,5 @@ const route = useRoute();
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

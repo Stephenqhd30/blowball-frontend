@@ -42,9 +42,7 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/account",
     name: "个人页",
-    meta: {
-      hideInMenu: true
-    },
+    redirect: "/account/center",
     children: [
       {
         path: "/account/center",

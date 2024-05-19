@@ -83,7 +83,6 @@ const handleRegisterSubmit = async () => {
     >
       <a-tabs
         v-model:activeKey="activeKey"
-        :tabBarStyle="{ textAlign: 'center', borderBottom: 'unset' }"
         centered
         size="large"
       >
@@ -120,7 +119,7 @@ const handleRegisterSubmit = async () => {
           <a-form-item>
             <a-button
               html-type="submit"
-              style="width: 120px; margin-left: 100px"
+              style="width: 120px"
               type="primary"
             >
               登录
@@ -178,7 +177,7 @@ const handleRegisterSubmit = async () => {
           <a-form-item>
             <a-button
               html-type="submit"
-              style="width: 120px; margin-left: 100px"
+              style="width: 120px"
               type="primary"
             >
               注册
