@@ -61,7 +61,7 @@ const loginOut = async () => {
     <template v-else>
       <a-button class="button" href="/user/login" type="primary">登录</a-button>
     </template>
-    <template #overlay>
+    <template #overlay v-if="props.user.id">
       <a-menu @click="handleMenuClick">
         <a-menu-item key="center">
           <UserOutlined />

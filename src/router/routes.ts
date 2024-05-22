@@ -1,4 +1,3 @@
-import IndexPage from '../views/IndexPage.vue';
 import {RouteRecordRaw} from 'vue-router';
 import Login from '../views/user/Login.vue';
 import NoAuthPage from '../views/exception/NoAuthPage.vue';
@@ -8,12 +7,16 @@ import NotFoundPage from '../views/exception/NotFoundPage.vue';
 import AdminUserPage from '../views/admin/AdminUserPage.vue';
 import UserCenter from '../views/account/UserCenter.vue';
 import UserSettings from '../views/account/UserSettings.vue';
+import IndexPage from '../views/IndexPage.vue';
 
 export const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "主页",
-    component: IndexPage
+    component: IndexPage,
+    children: [
+      {path: "/:category", component: IndexPage},
+    ]
   },
   {
     path: "/admin",

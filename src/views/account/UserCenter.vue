@@ -17,13 +17,13 @@ watchEffect(() => {
 </script>
 
 <template>
-  <a-card :extra="new Date().toLocaleDateString()" :title="USER_CENTER_TITLE">
+  <a-card id="user-center" :extra="new Date().toLocaleDateString()" :title="USER_CENTER_TITLE">
     <a-col :span="24">
       <a-space>
-        <a-row :span="8">
+        <a-row>
           <UserCard :user="loginUser" />
         </a-row>
-        <a-row :span="16">
+        <a-row>
           <UserInfoCard :user="loginUser" />
         </a-row>
       </a-space>
@@ -31,4 +31,5 @@ watchEffect(() => {
   </a-card>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

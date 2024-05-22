@@ -33,7 +33,6 @@ import {SUBTITLE, TITLE} from '../constants';
 
   .header {
     margin-top: 64px;
-    background: #f5f5f5;
 
     .logo {
       height: 64px;

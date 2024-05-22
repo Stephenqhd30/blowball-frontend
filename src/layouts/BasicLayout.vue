@@ -5,8 +5,8 @@ import GlobalFooter from "../components/footer/GlobalFooter.vue";
 
 <template>
   <div id="basic-layout">
-    <a-space :size="[0, 48]" :style="{ width: '100%' }" direction="vertical">
-      <a-layout style="height: 100vh">
+    <a-space :style="{ width: '100%' }" direction="vertical">
+      <a-layout style="min-height: 100vh">
         <!--网页全局头部-->
         <GlobalHeader />
         <a-layout-content class="content">
@@ -24,11 +24,9 @@ import GlobalFooter from "../components/footer/GlobalFooter.vue";
   .content {
     display: flex;
     flex-direction: column;
-    width: 100%;
     background-color: transparent;
     position: relative;
-    padding-block: 32px;
-    padding-inline: 40px;
+    padding: 32px;
     box-sizing: border-box;
   }
 }

@@ -87,7 +87,6 @@ router.afterEach((to) => {
     background: transparent;
     display: flex;
     margin-block: 0;
-    margin-inline: 16px;
     height: 56px;
     line-height: 56px;
 
@@ -98,10 +97,8 @@ router.afterEach((to) => {
       .logo {
         height: 48px;
       }
-
       .title {
         color: black;
-        margin-left: 16px;
         font-weight: bold;
       }
     }
