@@ -23,6 +23,12 @@ declare namespace API {
     message?: string;
   };
 
+  type BaseResponsePagePicture_ = {
+    code?: number;
+    data?: PagePicture_;
+    message?: string;
+  };
+
   type BaseResponsePagePost_ = {
     code?: number;
     data?: PagePost_;
@@ -119,6 +125,19 @@ declare namespace API {
     column?: string;
   };
 
+  type PagePicture_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: Picture[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
   type PagePost_ = {
     countId?: string;
     current?: number;
@@ -169,6 +188,19 @@ declare namespace API {
     searchCount?: boolean;
     size?: number;
     total?: number;
+  };
+
+  type Picture = {
+    title?: string;
+    url?: string;
+  };
+
+  type PictureQueryRequest = {
+    current?: number;
+    pageSize?: number;
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
   };
 
   type Post = {

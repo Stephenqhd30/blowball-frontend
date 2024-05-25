@@ -15,33 +15,51 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <a-row :gutter="[16, 16]" justify="start">
-    <template v-for="item in props.userList">
-      <a-col :span="6">
+  <div class="waterfall-container">
+    <template v-for="item in props.userList" :key="item.id">
+      <div class="waterfall-item">
         <a-card :bordered="false" hoverable>
+          <!-- Card content -->
           <template #cover>
-            <a-image :src="item.userAvatar" alt="userAvatar" />
+            <a-image
+                :alt="item.userName"
+                :src="item.userAvatar"
+                style="width: 100%; height: auto;"
+            />
           </template>
           <a-card-meta>
             <template #description>
               <a-space>
                 <IdcardTwoTone />
-                {{ item.userName }}
+                <span>{{ item.userName }}</span>
               </a-space>
               <a-space>
                 <SmileTwoTone />
-                {{ item.userProfile }}
+                <span>{{ item.userProfile }}</span>
               </a-space>
               <a-space>
                 <BankTwoTone />
-                {{ item.userRole === "user" ? "普通用户" : "管理员" }}
+                <span>{{
+                    item.userRole === "user" ? "普通用户" : "管理员"
+                  }}</span>
               </a-space>
             </template>
           </a-card-meta>
         </a-card>
-      </a-col>
+      </div>
     </template>
-  </a-row>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="less">
+.waterfall-container {
+  columns: 300px; /* 适应容器宽度，可以根据实际情况调整 */
+  column-gap: 16px; /* 列之间的间隔 */
+}
+
+.waterfall-item {
+  break-inside: avoid; /* 避免在元素内部断行 */
+  page-break-inside: avoid; /* 避免在打印时在元素内部断页 */
+  margin-bottom: 16px; /* 设置元素之间的垂直间隔 */
+}
+</style>

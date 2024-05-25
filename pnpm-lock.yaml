@@ -47,6 +47,9 @@ importers:
       vue-router:
         specifier: ^4.3.2
         version: 4.3.2(vue@3.4.27(typescript@5.4.5))
+      vue-waterfall-easy:
+        specifier: ^2.4.4
+        version: 2.4.4
     devDependencies:
       '@types/node':
         specifier: ^20.12.12
@@ -4775,6 +4778,10 @@ packages:
     engines: {node: '>=10.15.0'}
     peerDependencies:
       vue: ^3.0.0
+
+  vue-waterfall-easy@2.4.4:
+    resolution: {integrity: sha512-5OkpT2FPNC3rHBy858zk/nmJxqdPaGmj/KVbmA6dgcvtsovKMa+zuf/Z7F+S2NnObeavpIBztTWgcH3S42ZD+g==}
+    engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
 
   vue@3.4.27:
     resolution: {integrity: sha512-8s/56uK6r01r1icG/aEOHqyMVxd1bkYcSe9j8HcKtr/xTOFWvnzIVTehNW+5Yt89f+DLBe4A569pnZLS5HzAMA==}
@@ -10592,6 +10599,8 @@ snapshots:
     dependencies:
       is-plain-object: 3.0.1
       vue: 3.4.27(typescript@5.4.5)
+
+  vue-waterfall-easy@2.4.4: {}
 
   vue@3.4.27(typescript@5.4.5):
     dependencies:
