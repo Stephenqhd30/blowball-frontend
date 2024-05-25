@@ -1,9 +1,4 @@
 <script lang="ts" setup>
-import {
-  BankTwoTone,
-  IdcardTwoTone,
-  SmileTwoTone,
-} from "@ant-design/icons-vue";
 
 interface Props {
   pictureList: API.Picture[];
@@ -22,7 +17,6 @@ const props = withDefaults(defineProps<Props>(), {
           <!-- Card content -->
           <template #cover>
             <a-image
-                :alt="item.url"
                 :src="item.url"
                 style="width: 100%; height: auto;"
             />
