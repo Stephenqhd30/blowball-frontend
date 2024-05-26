@@ -4,10 +4,8 @@ import { useRoute, useRouter } from "vue-router";
 import PostList from "../components/index/PostList.vue";
 import PictureList from "../components/index/PictureList.vue";
 import UserList from "../components/index/UserList.vue";
-import { listPostVoByPageUsingPost } from "../servers/api/postController.ts";
 import { message } from "ant-design-vue";
-import { listUserVoByPageUsingPost } from "../servers/api/userController.ts";
-import {listPictureByPageUsingPost} from '../servers/api/pictureController.ts';
+import { doSearchAllUsingPost } from "../servers/api/searchController.ts";
 
 const route = useRoute();
 const router = useRouter();
@@ -30,9 +28,7 @@ const onSearch = () => {
   router.push({
     query: searchParams.value,
   });
-  listPostVoByPage();
-  getUserVo();
-  listPictureByPage();
+  loadData();
 };
 
 /**
@@ -47,53 +43,20 @@ const onTabChange = (key: string) => {
 };
 
 /**
- * 加载帖子数据
+ * 加载数据
  */
-const listPostVoByPage = async () => {
+const loadData = async () => {
   try {
-    const res = await listPostVoByPageUsingPost(searchParams.value);
+    const res = await doSearchAllUsingPost(searchParams.value);
     if (res.data.code === 0 && res.data.data) {
-      postList.value = res.data.data.records as API.PostVO[];
+      postList.value = res.data.data.postVOList as API.PostVO[];
+      userList.value = res.data.data.userVOList as API.UserVO[];
+      pictureList.value = res.data.data.pictureList as API.Picture[];
     } else {
-      message.error('数据加载失败' + res?.data?.message);
+      message.error("数据加载失败" + res?.data?.message);
     }
   } catch (error: any) {
-    message.error('数据加载失败' + error.message);
-  }
-};
-
-/**
- * 加载图片数据
- */
-const listPictureByPage = async () => {
-  try {
-    const res = await listPictureByPageUsingPost(searchParams.value);
-    if (res.data.code === 0 && res.data.data) {
-      pictureList.value = res.data.data.records as API.Picture[];
-    } else {
-      message.error('数据加载失败' + res?.data?.message);
-    }
-  } catch (error: any) {
-    message.error('数据加载失败' + error.message);
-  }
-};
-
-/**
- * 加载用户列表
- */
-const getUserVo = async () => {
-  try {
-    const res = await listUserVoByPageUsingPost({
-      ...searchParams.value,
-      userName: searchParams.value.searchText,
-    });
-    if (res.data.code === 0 && res.data.data) {
-      userList.value = res.data.data.records as API.UserVO[];
-    } else {
-      message.error('数据加载失败' + res?.data?.message);
-    }
-  } catch (error: any) {
-    message.error('数据加载失败' + error.message);
+    message.error("数据加载失败" + error.message);
   }
 };
 
@@ -101,9 +64,7 @@ const getUserVo = async () => {
  * 页面首次加载的时候的时候加载数据
  */
 onMounted(() => {
-  listPostVoByPage();
-  getUserVo();
-  listPictureByPage();
+  loadData();
 });
 /**
  * 监听参数的变化

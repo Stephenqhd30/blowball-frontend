@@ -16,15 +16,19 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <div class="waterfall-container">
-    <template v-for="item in props.userList" :key="item.id">
+    <template
+      v-for="item in props.userList"
+      v-if="props.userList"
+      :key="item.id"
+    >
       <div class="waterfall-item">
         <a-card :bordered="false" hoverable>
           <!-- Card content -->
           <template #cover>
             <a-image
-                :alt="item.userName"
-                :src="item.userAvatar"
-                style="width: 100%; height: auto;"
+              :alt="item.userName"
+              :src="item.userAvatar"
+              style="width: 100%; height: auto"
             />
           </template>
           <a-card-meta>
@@ -40,13 +44,16 @@ const props = withDefaults(defineProps<Props>(), {
               <a-space>
                 <BankTwoTone />
                 <span>{{
-                    item.userRole === "user" ? "普通用户" : "管理员"
-                  }}</span>
+                  item.userRole === "user" ? "普通用户" : "管理员"
+                }}</span>
               </a-space>
             </template>
           </a-card-meta>
         </a-card>
       </div>
+    </template>
+    <template v-else>
+      <a-empty />
     </template>
   </div>
 </template>

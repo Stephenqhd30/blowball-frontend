@@ -59,6 +59,12 @@ declare namespace API {
     message?: string;
   };
 
+  type BaseResponseSearchVO_ = {
+    code?: number;
+    data?: SearchVO;
+    message?: string;
+  };
+
   type BaseResponseString_ = {
     code?: number;
     data?: string;
@@ -282,6 +288,20 @@ declare namespace API {
     updateTime?: string;
     user?: UserVO;
     userId?: number;
+  };
+
+  type SearchRequest = {
+    current?: number;
+    pageSize?: number;
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
+  };
+
+  type SearchVO = {
+    pictureList?: Picture[];
+    postVOList?: PostVO[];
+    userVOList?: UserVO[];
   };
 
   type uploadFileUsingPOSTParams = {

@@ -48,7 +48,7 @@ const pagination = {
             width="272"
           />
         </template>
-        <a-list-item-meta :description="item">
+        <a-list-item-meta :description="item.description">
           <template #title>
             <span>{{ item.title }}</span>
           </template>

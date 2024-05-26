@@ -8,6 +8,7 @@ import * as pictureController from './pictureController';
 import * as postController from './postController';
 import * as postFavourController from './postFavourController';
 import * as postThumbController from './postThumbController';
+import * as searchController from './searchController';
 import * as userController from './userController';
 export default {
   wxMpController,
@@ -16,5 +17,6 @@ export default {
   postController,
   postFavourController,
   postThumbController,
+  searchController,
   userController,
 };
