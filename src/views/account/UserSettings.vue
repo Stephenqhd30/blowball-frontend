@@ -6,11 +6,25 @@ import {
   SecurityScanOutlined,
   SettingOutlined,
 } from "@ant-design/icons-vue";
-import { ref } from "vue";
+import {onMounted, ref, watchEffect} from 'vue';
 import BaseSetting from "../../components/account/setting/BaseSetting.vue";
 
 const loginUserStore = useLoginUserStore();
-let loginUser = loginUserStore.loginUser;
+const loginUser = ref(loginUserStore.loginUser);
+
+/**
+ * 页面首次加载的时候获取最近的用户信息
+ */
+onMounted(() => {
+  loginUserStore.fetchLoginUser();
+});
+
+/**
+ * 监听数据的变化
+ */
+watchEffect(() => {
+  loginUser.value = { ...loginUserStore.loginUser };
+});
 const activeKey = ref<string>("base");
 </script>
 
@@ -25,7 +39,7 @@ const activeKey = ref<string>("base");
               基本设置
             </span>
           </template>
-          <BaseSetting :user="loginUser" />
+          <BaseSetting :user-list="loginUser" />
         </a-tab-pane>
         <a-tab-pane key="binding">
           <template #tab>

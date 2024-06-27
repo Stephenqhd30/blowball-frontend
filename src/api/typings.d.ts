@@ -296,12 +296,14 @@ declare namespace API {
     searchText?: string;
     sortField?: string;
     sortOrder?: string;
+    type?: string;
   };
 
   type SearchVO = {
     pictureList?: Picture[];
     postVOList?: PostVO[];
     userVOList?: UserVO[];
+    dateList?: [];
   };
 
   type uploadFileUsingPOSTParams = {

@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { message } from "ant-design-vue";
 import { UploadOutlined } from "@ant-design/icons-vue";
-import { uploadFileUsingPost } from "../servers/api/fileController.ts";
+import { uploadFileUsingPost } from "../api/fileController.ts";
 import { useLoginUserStore } from "../store";
 
 interface Props {

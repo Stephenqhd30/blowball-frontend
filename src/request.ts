@@ -10,14 +10,6 @@ const request = axios.create({
 // 请求拦截器
 request.interceptors.request.use(
   (config: any) => {
-    const token = window.localStorage.getItem("token");
-    if (token) {
-      config.headers = {
-        ...config.headers,
-        token: token,
-        "Content-Type": "application/json",
-      };
-    }
     return config;
   },
   (error) => {

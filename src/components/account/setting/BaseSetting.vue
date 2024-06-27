@@ -1,18 +1,13 @@
 <script lang="ts" setup>
-import { ref, watchEffect } from "vue";
-import { updateUserUsingPost } from "../../../servers/api/userController.ts";
+import { ref } from "vue";
+import { updateUserUsingPost } from "../../../api/userController.ts";
 import { message } from "ant-design-vue";
 
-import { useLoginUserStore } from "../../../store";
-
-const loginUserStore = useLoginUserStore();
-const fetchLoginUser = async () => {
-  await loginUserStore.fetchLoginUser();
-};
-const loginUser = loginUserStore.loginUser;
-
-watchEffect(() => {
-  fetchLoginUser();
+interface Props {
+  userList: API.LoginUserVO;
+}
+const props = withDefaults(defineProps<Props>(), {
+  userList: () => ({} as API.LoginUserVO),
 });
 
 const layout = {
@@ -21,14 +16,13 @@ const layout = {
 };
 
 const formState = ref<API.LoginUserVO>({
-  ...loginUser,
+  ...props.userList,
 });
 const handleUpdate = async (values: API.LoginUserVO) => {
-  console.log(values);
   try {
     const res = await updateUserUsingPost({
       ...values,
-      id: loginUser.id,
+      id: props.userList.id,
     });
     if (res?.data?.code === 0 && res.data?.data) {
       message.success("用户更新成功");

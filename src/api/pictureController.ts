@@ -1,6 +1,6 @@
 // @ts-ignore
 /* eslint-disable */
-import request from '../../request.ts';
+import request from '../request.ts';
 
 /** listPictureByPage POST /api/picture/list/page/vo */
 export async function listPictureByPageUsingPost(

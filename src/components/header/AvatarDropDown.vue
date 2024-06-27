@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { UserOutlined } from "@ant-design/icons-vue";
 import { useRouter } from "vue-router";
-import { userLogoutUsingPost } from "../../servers/api/userController.ts";
+import { userLogoutUsingPost } from "../../api/userController.ts";
 import { MenuProps } from "ant-design-vue";
 
 interface AvatarDropDownProps {

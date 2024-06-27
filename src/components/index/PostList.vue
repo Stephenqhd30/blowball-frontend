@@ -23,7 +23,6 @@ const pagination = {
     :data-source="props.postList"
     :pagination="pagination"
     item-layout="vertical"
-    size="large"
   >
     <template #renderItem="{ item }">
       <a-list-item key="item.title">

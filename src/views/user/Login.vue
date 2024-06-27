@@ -3,7 +3,7 @@ import { reactive, ref } from "vue";
 import {
   userLoginUsingPost,
   userRegisterUsingPost,
-} from "../../servers/api/userController.ts";
+} from "../../api/userController.ts";
 import { useLoginUserStore } from "../../store";
 import { message } from "ant-design-vue";
 import { useRouter } from "vue-router";

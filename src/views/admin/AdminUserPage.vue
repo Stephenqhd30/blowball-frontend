@@ -2,7 +2,7 @@
 import {
   deleteUserUsingPost,
   listUserByPageUsingPost,
-} from "../../servers/api/userController.ts";
+} from "../../api/userController.ts";
 import { ref, watchEffect } from "vue";
 import { message } from "ant-design-vue";
 import { dateFormat } from "../../utils";

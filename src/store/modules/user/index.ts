@@ -1,7 +1,7 @@
-import {ref} from 'vue';
-import {defineStore} from 'pinia';
-import {getLoginUserUsingGet} from '../../../servers/api/userController.ts';
-import {ACCESS_ENUM} from '../../../constants';
+import { ref } from "vue";
+import { defineStore } from "pinia";
+import { getLoginUserUsingGet } from "../../../api/userController.ts";
+import { ACCESS_ENUM } from "../../../constants";
 
 /**
  * 登录用户信息全局状态
