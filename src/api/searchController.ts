@@ -1,11 +1,12 @@
-// @ts-ignore
 /* eslint-disable */
+// @ts-ignore
 import request from '../request.ts';
+import * as API from './types';
 
 /** doSearchAll POST /api/search/all */
 export async function doSearchAllUsingPost(
   body: API.SearchRequest,
-  options?: { [key: string]: any },
+  options?: { [key: string]: unknown }
 ) {
   return request<API.BaseResponseSearchVO_>('/api/search/all', {
     method: 'POST',

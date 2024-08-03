@@ -1,9 +1,13 @@
-// @ts-ignore
 /* eslint-disable */
+// @ts-ignore
 import request from '../request.ts';
+import * as API from './types';
 
 /** addPost POST /api/post/add */
-export async function addPostUsingPost(body: API.PostAddRequest, options?: { [key: string]: any }) {
+export async function addPostUsingPost(
+  body: API.PostAddRequest,
+  options?: { [key: string]: unknown }
+) {
   return request<API.BaseResponseLong_>('/api/post/add', {
     method: 'POST',
     headers: {
@@ -17,7 +21,7 @@ export async function addPostUsingPost(body: API.PostAddRequest, options?: { [ke
 /** deletePost POST /api/post/delete */
 export async function deletePostUsingPost(
   body: API.DeleteRequest,
-  options?: { [key: string]: any },
+  options?: { [key: string]: unknown }
 ) {
   return request<API.BaseResponseBoolean_>('/api/post/delete', {
     method: 'POST',
@@ -32,7 +36,7 @@ export async function deletePostUsingPost(
 /** editPost POST /api/post/edit */
 export async function editPostUsingPost(
   body: API.PostEditRequest,
-  options?: { [key: string]: any },
+  options?: { [key: string]: unknown }
 ) {
   return request<API.BaseResponseBoolean_>('/api/post/edit', {
     method: 'POST',
@@ -46,9 +50,9 @@ export async function editPostUsingPost(
 
 /** getPostVOById GET /api/post/get/vo */
 export async function getPostVoByIdUsingGet(
-  // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
+  // 叠加生成的Param类型 (非body参数openapi默认没有生成对象)
   params: API.getPostVOByIdUsingGETParams,
-  options?: { [key: string]: any },
+  options?: { [key: string]: unknown }
 ) {
   return request<API.BaseResponsePostVO_>('/api/post/get/vo', {
     method: 'GET',
@@ -62,7 +66,7 @@ export async function getPostVoByIdUsingGet(
 /** listPostByPage POST /api/post/list/page */
 export async function listPostByPageUsingPost(
   body: API.PostQueryRequest,
-  options?: { [key: string]: any },
+  options?: { [key: string]: unknown }
 ) {
   return request<API.BaseResponsePagePost_>('/api/post/list/page', {
     method: 'POST',
@@ -77,7 +81,7 @@ export async function listPostByPageUsingPost(
 /** listPostVOByPage POST /api/post/list/page/vo */
 export async function listPostVoByPageUsingPost(
   body: API.PostQueryRequest,
-  options?: { [key: string]: any },
+  options?: { [key: string]: unknown }
 ) {
   return request<API.BaseResponsePagePostVO_>('/api/post/list/page/vo', {
     method: 'POST',
@@ -92,7 +96,7 @@ export async function listPostVoByPageUsingPost(
 /** listMyPostVOByPage POST /api/post/my/list/page/vo */
 export async function listMyPostVoByPageUsingPost(
   body: API.PostQueryRequest,
-  options?: { [key: string]: any },
+  options?: { [key: string]: unknown }
 ) {
   return request<API.BaseResponsePagePostVO_>('/api/post/my/list/page/vo', {
     method: 'POST',
@@ -107,7 +111,7 @@ export async function listMyPostVoByPageUsingPost(
 /** searchPostVOByPage POST /api/post/search/page/vo */
 export async function searchPostVoByPageUsingPost(
   body: API.PostQueryRequest,
-  options?: { [key: string]: any },
+  options?: { [key: string]: unknown }
 ) {
   return request<API.BaseResponsePagePostVO_>('/api/post/search/page/vo', {
     method: 'POST',
@@ -122,7 +126,7 @@ export async function searchPostVoByPageUsingPost(
 /** updatePost POST /api/post/update */
 export async function updatePostUsingPost(
   body: API.PostUpdateRequest,
-  options?: { [key: string]: any },
+  options?: { [key: string]: unknown }
 ) {
   return request<API.BaseResponseBoolean_>('/api/post/update', {
     method: 'POST',

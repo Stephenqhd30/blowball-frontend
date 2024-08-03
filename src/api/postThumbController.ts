@@ -1,11 +1,12 @@
-// @ts-ignore
 /* eslint-disable */
+// @ts-ignore
 import request from '../request.ts';
+import * as API from './types';
 
 /** doThumb POST /api/post_thumb/ */
 export async function doThumbUsingPost(
   body: API.PostThumbAddRequest,
-  options?: { [key: string]: any },
+  options?: { [key: string]: unknown }
 ) {
   return request<API.BaseResponseInt_>('/api/post_thumb/', {
     method: 'POST',

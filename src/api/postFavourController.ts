@@ -1,11 +1,12 @@
-// @ts-ignore
 /* eslint-disable */
+// @ts-ignore
 import request from '../request.ts';
+import * as API from './types';
 
 /** doPostFavour POST /api/post_favour/ */
 export async function doPostFavourUsingPost(
   body: API.PostFavourAddRequest,
-  options?: { [key: string]: any },
+  options?: { [key: string]: unknown }
 ) {
   return request<API.BaseResponseInt_>('/api/post_favour/', {
     method: 'POST',
@@ -20,7 +21,7 @@ export async function doPostFavourUsingPost(
 /** listFavourPostByPage POST /api/post_favour/list/page */
 export async function listFavourPostByPageUsingPost(
   body: API.PostFavourQueryRequest,
-  options?: { [key: string]: any },
+  options?: { [key: string]: unknown }
 ) {
   return request<API.BaseResponsePagePostVO_>('/api/post_favour/list/page', {
     method: 'POST',
@@ -35,7 +36,7 @@ export async function listFavourPostByPageUsingPost(
 /** listMyFavourPostByPage POST /api/post_favour/my/list/page */
 export async function listMyFavourPostByPageUsingPost(
   body: API.PostQueryRequest,
-  options?: { [key: string]: any },
+  options?: { [key: string]: unknown }
 ) {
   return request<API.BaseResponsePagePostVO_>('/api/post_favour/my/list/page', {
     method: 'POST',
