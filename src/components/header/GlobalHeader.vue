@@ -57,7 +57,7 @@ router.afterEach((to) => {
         >
           <a-menu-item disabled>
             <div class="title-bar">
-              <img alt="logo" class="logo" src="../../assets/logo.png" />
+              <img alt="logo" class="logo" src="../../../public/assets/logo.png" />
               <div class="title">{{ TITLE }}</div>
             </div>
           </a-menu-item>

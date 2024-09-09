@@ -10,7 +10,7 @@ import {SUBTITLE, TITLE} from '../constants';
         <!--网页全局头部-->
         <a-layout-header class="header">
           <a-space>
-            <img alt="logo" class="logo" src="../assets/logo.png" />
+            <img alt="logo" class="logo" src="../../public/assets/logo.png" />
             <div class="title">{{ TITLE }}</div>
           </a-space>
           <div class="sub-title">{{SUBTITLE}}</div>
@@ -53,7 +53,7 @@ import {SUBTITLE, TITLE} from '../constants';
   }
 
   .content {
-    background: url("../assets/background.svg");
+    background: url("../../public/assets/background.svg");
     background-size: 100%;
     float: right;
     padding: 50px 0 84px;

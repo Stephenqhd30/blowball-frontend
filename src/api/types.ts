@@ -1,6 +1,5 @@
 /* eslint-disable */
 // @ts-ignore
-
 export type BaseResponseBoolean_ = {
   code?: number;
   data?: boolean;

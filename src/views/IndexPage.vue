@@ -5,18 +5,18 @@ import PictureList from "../components/index/PictureList.vue";
 import UserList from "../components/index/UserList.vue";
 import { message } from "ant-design-vue";
 import { doSearchAllUsingPost } from "../api/searchController.ts";
-import {ref} from 'vue';
+import { ref, watchEffect } from "vue";
 
 const route = useRoute();
 const router = useRouter();
 const activeKey = ref(route.params.category);
-const dateList = ref<any>([])
+const dateList = ref<any>([]);
 // 初始化搜索参数
 const initSearchParams: API.SearchRequest = {
   searchText: "",
   pageSize: 10,
   current: 1,
-  type: route.params.category as string || "",
+  type: (route.params.category as string) || "post",
 };
 const searchParams = ref<API.SearchRequest>({
   ...initSearchParams,
@@ -35,14 +35,15 @@ const onSearch = () => {
  * tab栏切换
  * @param key
  */
-const onTabChange = (key: string) => {
+const onTabChange = async (key: string) => {
+  dateList.value = [];
   activeKey.value = key;
   searchParams.value.type = key;
+  await loadData(searchParams.value);
   router.push({
     path: `/${key}`,
     query: searchParams.value,
   });
-  loadData(searchParams.value);
 };
 
 /**
@@ -68,6 +69,11 @@ const loadData = async (params: API.SearchRequest) => {
   }
 };
 
+// 监听路由变化，更新 activeKey 和加载数据
+watchEffect(() => {
+  activeKey.value = route.params.category || "post";
+  loadData(searchParams.value);
+});
 </script>
 
 <template>
