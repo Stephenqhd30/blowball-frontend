@@ -10,7 +10,7 @@ import { ref, watchEffect } from "vue";
 const route = useRoute();
 const router = useRouter();
 const activeKey = ref(route.params.category);
-const dateList = ref<any>([]);
+const dateList = ref<any[]>([]);
 // 初始化搜索参数
 const initSearchParams: API.SearchRequest = {
   searchText: "",
@@ -18,9 +18,7 @@ const initSearchParams: API.SearchRequest = {
   current: 1,
   type: (route.params.category as string) || "post",
 };
-const searchParams = ref<API.SearchRequest>({
-  ...initSearchParams,
-});
+const searchParams = ref<API.SearchRequest>({ ...initSearchParams });
 /**
  * 执行搜索函数
  */
@@ -40,7 +38,7 @@ const onTabChange = async (key: string) => {
   activeKey.value = key;
   searchParams.value.type = key;
   await loadData(searchParams.value);
-  router.push({
+  await router.push({
     path: `/${key}`,
     query: searchParams.value,
   });
